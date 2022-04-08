@@ -41,7 +41,7 @@ public class ViewMult extends JFrame{
 		ta_result = new JTextArea();
 		ta_result.setBounds(45, 30, 882, 480);
 		ta_result.setVisible(true);
-		ta_result.setEditable(true);
+		ta_result.setEditable(false);
 		ta_result.setLineWrap(true);
 		ta_result.setWrapStyleWord(true);
 		add(ta_result);
@@ -106,7 +106,7 @@ public class ViewMult extends JFrame{
 		add(bt_atras);
 
 		Dimension wsize = getSize();
-		windowImg = new ImageIcon(getClass().getResource("/Img/img.jpg"));
+		windowImg = new ImageIcon(getClass().getResource("/Img/multBack.jpg"));
 		lb_welcome = new JLabel(windowImg);
 		lb_welcome.setBounds(0, 0, wsize.width, wsize.height);
 		add(lb_welcome);

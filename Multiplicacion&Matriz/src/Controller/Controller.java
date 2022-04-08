@@ -66,10 +66,16 @@ public class Controller implements ActionListener {
 						|| mult.isNumeric(viewMult.getTa_num2().getText()) == false) {
 					viewM.showMessage("Input no valido, ingrese numeros unicamente", "Error");
 				} else {
-				
+					String in1 = viewMult.getTa_num1().getText();
+					String in2 = viewMult.getTa_num2().getText();
+					input1 = new BigInteger(in1);
+					input2 = new BigInteger(in2);
+					if(input1.compareTo(BigInteger.ZERO) == 1 && input2.compareTo(BigInteger.ZERO)== 1){
 						runMultiply();
 						viewMult.getTa_result().setText(result.toString());
-					
+					}else {
+						viewM.showMessage("Debe ingresar 2 numeros positivos", "Error");
+					}
 				}
 
 			} else {

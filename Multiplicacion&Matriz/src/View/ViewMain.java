@@ -14,15 +14,12 @@ public class ViewMain extends JFrame{
 	private JButton bt_mult;
 	private JButton bt_matriz;
 	private JButton bt_exit;
-	private int width;
-	private int height;
+
 
 	public ViewMain() {
 		
 		setIconImage(new ImageIcon(getClass().getResource("/Img/logo.png")).getImage());
 		setTitle("Multiplicacion & Matrices");
-		width = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-		height = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 		setLayout(null);
 		setSize(600, 460);
 		

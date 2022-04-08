@@ -12,8 +12,8 @@ public class Controller implements ActionListener {
 	public ViewMain viewM;
 	public ViewMult viewMult;
 	public Multiplication mult;
-	public String input1 = "";
-	public String input2 = "";
+	public BigInteger input1 = new BigInteger("0");
+	public BigInteger input2 = new BigInteger("0");
 	public int n = 0;
 	public BigInteger result = new BigInteger("0");
 
@@ -33,8 +33,8 @@ public class Controller implements ActionListener {
 	public BigInteger runMultiply() {
 		String in1 = viewMult.getTa_num1().getText();
 		String in2 = viewMult.getTa_num2().getText();
-		BigInteger input1 = new BigInteger(in1);
-		BigInteger input2 = new BigInteger(in2);
+		input1 = new BigInteger(in1);
+		input2 = new BigInteger(in2);
 		n = Math.max(input1.bitLength(), input2.bitLength());
 		if (n < 6) {
 			result = mult.smallMulti(input1, input2);
@@ -66,13 +66,10 @@ public class Controller implements ActionListener {
 						|| mult.isNumeric(viewMult.getTa_num2().getText()) == false) {
 					viewM.showMessage("Input no valido, ingrese numeros unicamente", "Error");
 				} else {
-					if (Integer.parseInt(viewMult.getTa_num1().getText()) > 0
-							&& Integer.parseInt(viewMult.getTa_num2().getText()) > 0) {
+				
 						runMultiply();
 						viewMult.getTa_result().setText(result.toString());
-					} else {
-						viewM.showMessage("Debe ingresar 2 numeros positivos", "Error");
-					}
+					
 				}
 
 			} else {

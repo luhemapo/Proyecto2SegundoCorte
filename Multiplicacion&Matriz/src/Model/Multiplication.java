@@ -21,7 +21,7 @@ public class Multiplication {
 	        return false;
 	    }
 	    try {
-	        double d = Double.parseDouble(input);
+	        BigInteger d = new BigInteger(input);
 	    } catch (NumberFormatException nfe) {
 	        return false;
 	    }
@@ -34,15 +34,18 @@ public class Multiplication {
 	}
 	public static BigInteger multi(BigInteger input1, BigInteger input2, int n) {
 		int s = n/2;
-		
-		BigInteger w = input1.divide(BigDecimal.valueOf(Math.pow(10, s)).toBigInteger());
-		BigInteger x = input1.mod(BigDecimal.valueOf(Math.pow(10, s)).toBigInteger());
-		BigInteger y = input2.divide(BigDecimal.valueOf(Math.pow(10, s)).toBigInteger());
-		BigInteger z = input2.mod(BigDecimal.valueOf(Math.pow(10, s)).toBigInteger());
+		BigInteger pow1 = new BigInteger("10");
+		BigInteger pow2 = new BigInteger("10");
+		pow1 = pow1.pow(s);
+		pow2 = pow2.pow(2*s);
+		BigInteger w = input1.divide(pow1);
+		BigInteger x = input1.mod(pow1);
+		BigInteger y = input2.divide(pow1);
+		BigInteger z = input2.mod(pow1);
 	
-		BigInteger firtsStep = (w.multiply(y)).multiply(BigDecimal.valueOf(Math.pow(10, (2*s))).toBigInteger());
+		BigInteger firtsStep = (w.multiply(y)).multiply(pow2);
 		BigInteger secondStep = w.multiply(z);
-		BigInteger thirdStep =(x.multiply(y)).multiply(BigDecimal.valueOf(Math.pow(10, s)).toBigInteger());
+		BigInteger thirdStep =(x.multiply(y)).multiply(pow1);
 		BigInteger fourthStep = x.multiply(z);
 		BigInteger result = firtsStep.add(secondStep).add(thirdStep).add(fourthStep);
 		

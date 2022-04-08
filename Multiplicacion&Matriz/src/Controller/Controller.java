@@ -14,7 +14,7 @@ public class Controller implements ActionListener {
 	public Multiplication mult;
 	public String input1 = "";
 	public String input2 = "";
-	public int s = 0;
+	public int n = 0;
 	public BigInteger result = new BigInteger("0");
 	public Controller() {
 		viewM = new ViewMain();
@@ -30,38 +30,17 @@ public class Controller implements ActionListener {
 
 	}
 	public BigInteger runMultiply() {
-		
-		String wInp = "";
-		String xInp = "";
-		String yInp = "";
-		String zInp = "";
-		String input1 = viewMult.getTa_num1().getText();
-		String input2 = viewMult.getTa_num2().getText();
-		if (lengthEven(input1) == true) {
-			s = input1.length()/2;
-			wInp = input1.substring(0, s);
-			xInp = input1.substring(s,input1.length());
-
-		} else {
-			s = input1.length()/2+1;
-			wInp = input1.substring(0, s-1);
-			xInp = input1.substring(s-1,input1.length());
-
+		String in1 = viewMult.getTa_num1().getText();
+		String in2 = viewMult.getTa_num2().getText();
+		BigInteger input1 = new BigInteger(in1);
+		BigInteger input2 = new BigInteger(in2);
+		n = Math.max(input1.bitLength(), input2.bitLength());
+		if(n < 6) {
+			result = mult.smallMulti(input1, input2);
+		}else {
+			result = mult.multi(input1, input2, n);
+			
 		}
-
-		if (lengthEven(input2) == true) {
-			s = input2.length()/2;
-			yInp = input2.substring(0, s);
-			zInp = input2.substring(s,input2.length());
-
-		} else {
-			s = input2.length()/2+1;
-			yInp = input2.substring(0, s-1);
-			zInp = input2.substring(s-1,input2.length());
-
-		}
-		result = mult.multi(wInp, xInp, yInp, zInp, s);
-		System.out.println(result);
 		return result;
 		
 	}
@@ -91,12 +70,18 @@ public class Controller implements ActionListener {
 		}
 		if (e.getActionCommand().equals("MULT_MULTIPLICAR")) {
 			if(!viewMult.getTa_num1().getText().equals("")&&!viewMult.getTa_num2().getText().equals("")) {
-				if(viewMult.getTa_num1().getText().length()==viewMult.getTa_num2().getText().length()) {
-					runMultiply();
-					viewMult.getTa_result().setText(result.toString());
+				if(mult.isNumeric(viewMult.getTa_num1().getText())== false ||mult.isNumeric(viewMult.getTa_num2().getText())== false) {
+					viewM.showMessage("Input no valido", "Error");
 				}else {
-					viewM.showMessage("Los numeros deben tener la misma longitud", "Error");
+					if(Integer.parseInt(viewMult.getTa_num1().getText())>0 && Integer.parseInt(viewMult.getTa_num2().getText())>0) {
+						runMultiply();
+						viewMult.getTa_result().setText(result.toString());
+					}else {
+						viewM.showMessage("Debe ingresar 2 numeros positivos", "Error");
+					}
 				}
+					
+				
 			}else {
 				viewM.showMessage("Debe ingresar 2 numeros positivos", "Error");
 			}

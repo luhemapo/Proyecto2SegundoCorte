@@ -1,5 +1,6 @@
 package Model;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class Multiplication {
@@ -15,35 +16,37 @@ public class Multiplication {
 
 		
 	}
-	public static BigInteger multi(String wInp, String xInp, String yInp, String zInp, int s) {
-		BigInteger w = new BigInteger(wInp);
-		BigInteger x = new BigInteger(xInp);
-		BigInteger y = new BigInteger(yInp);
-		BigInteger z = new BigInteger(zInp);
-		BigInteger firstPow = new BigInteger("10");
-		BigInteger SecondtPow = new BigInteger("10");
-		BigInteger wy = w.multiply(y);
-		BigInteger wz = w.multiply(z);
-		BigInteger xy = x.multiply(y);
-		BigInteger xz = x.multiply(z);
-		firstPow = firstPow.pow(s*2);
-		SecondtPow = SecondtPow.pow(s);
-		BigInteger one = firstPow.multiply(wy);
-		BigInteger tw = wz.add(xy);
-		BigInteger two = SecondtPow.multiply(tw);
-		BigInteger result = one.add(two).add(xz);
+	public boolean isNumeric(String input) {
+	    if (input == null) {
+	        return false;
+	    }
+	    try {
+	        double d = Double.parseDouble(input);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
+	}
+	
+	public static BigInteger smallMulti(BigInteger input1, BigInteger input2) {
+		BigInteger result =input1.multiply(input2);
+		return result;
+	}
+	public static BigInteger multi(BigInteger input1, BigInteger input2, int n) {
+		int s = n/2;
+		
+		BigInteger w = input1.divide(BigDecimal.valueOf(Math.pow(10, s)).toBigInteger());
+		BigInteger x = input1.mod(BigDecimal.valueOf(Math.pow(10, s)).toBigInteger());
+		BigInteger y = input2.divide(BigDecimal.valueOf(Math.pow(10, s)).toBigInteger());
+		BigInteger z = input2.mod(BigDecimal.valueOf(Math.pow(10, s)).toBigInteger());
+	
+		BigInteger firtsStep = (w.multiply(y)).multiply(BigDecimal.valueOf(Math.pow(10, (2*s))).toBigInteger());
+		BigInteger secondStep = w.multiply(z);
+		BigInteger thirdStep =(x.multiply(y)).multiply(BigDecimal.valueOf(Math.pow(10, s)).toBigInteger());
+		BigInteger fourthStep = x.multiply(z);
+		BigInteger result = firtsStep.add(secondStep).add(thirdStep).add(fourthStep);
 		
 		return result;
 		
-	}
-	
-	public static boolean lengthEven(String input) {
-		int even = input.length() % 2;
-		if (even == 1) {
-			return false;
-		} else {
-			return true;
-		}
-
 	}
 }

@@ -19,7 +19,7 @@ public class ViewMain extends JFrame{
 
 	public ViewMain() {
 		
-		setIconImage(new ImageIcon(getClass().getResource("/Img/img.jpg")).getImage());
+		setIconImage(new ImageIcon(getClass().getResource("/Img/logo.png")).getImage());
 		setTitle("Multiplicacion & Matrices");
 		width = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
 		height = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
@@ -32,19 +32,19 @@ public class ViewMain extends JFrame{
 
 		bt_mult = new JButton("Multiplicar");
 		bt_mult.setActionCommand("MAIN_MULTIPLICAR");
-		bt_mult.setBounds(80, 200, 200, 30);
+		bt_mult.setBounds(80, 240, 200, 30);
 		bt_mult.setVisible(true);
 		add(bt_mult);
 
 		bt_matriz = new JButton("Matriz");
 		bt_matriz.setActionCommand("MAIN_MATRIZ");
-		bt_matriz.setBounds(80, 240, 200, 30);
+		bt_matriz.setBounds(80, 280, 200, 30);
 		bt_matriz.setVisible(true);
 		add(bt_matriz);
 
 		bt_exit = new JButton("Exit");
 		bt_exit.setActionCommand("EXIT");
-		bt_exit.setBounds(80, 280, 200, 30);
+		bt_exit.setBounds(80, 320, 200, 30);
 		bt_exit.setVisible(true);
 		add(bt_exit);
 

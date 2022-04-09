@@ -13,26 +13,59 @@ import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
 public class ViewMat extends JFrame{
-	
+	/**
+	 * Imagen de fondo de la ventana matriz
+	 */
 	private ImageIcon windowImg;
+	/**
+	 * Contenedor de la imagen de la ventana matriz
+	 */
 	private JLabel lb_welcome;
+	/**
+	 * JLabel para indicar al usuario que escriba el input 1
+	 */
 	private JLabel lb_num1;
+	/**
+	 * JLabel para indicar al usuario que escriba el input 2
+	 */
 	private JLabel lb_num2;
+	/**
+	 * JTextField que muestra resultado
+	 */
 	private JTextArea ta_result;
+	/**
+	 * JTextField que recibe el input 1
+	 */
 	private JTextArea ta_num1;
+	/**
+	 * JTextField que recibe el input 2
+	 */
 	private JTextArea ta_num2;
+	/**
+	 * Boton que ejecutara el algoritmo
+	 */
 	private JButton bt_mult;
+	/**
+	 * Boton que regresa a la ventana principal
+	 */
 	private JButton bt_atras;
+	/**
+	 * Boton que pide nuevamente los inputs
+	 */
 	private JButton bt_nuevo;
-	private int width;
-	private int height;
-	
+	/**
+	 * Metodo inicializador de la ventana de matriz. Define todos sus componentes y ubicaciones
+	 * <br>
+	 * <b>Pre:</b>
+	 * <br>
+	 * <b>Post:</b>
+	 * <br>
+	 * La ventana se encuentra lista para mostrarse
+	 */
 	public ViewMat() {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setIconImage(new ImageIcon(getClass().getResource("/Img/img.jpg")).getImage());
 		setTitle("Multiplicar matrices");
-		width = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-		height = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 		setLayout(null);
 		setSize(1350, 676);
 		
@@ -122,7 +155,20 @@ public class ViewMat extends JFrame{
 		setVisible(false);
 	
 	}
-	
+	/**
+	 * Metodo que pregunta por inputs de la matriz
+	 * <br>
+	 * <b>Pre:</b>
+	 * <br>
+	 * La ventana se esta mostrando
+	 * <br>
+	 * Se lee los inputs
+	 * <br>
+	 * <b>Post:</b>
+	 * <br>
+	 * Se muestran los inputs
+	 * @param file String que contiene el texto del archivo seleccionado por el usuario
+	 */
 	public int inputData(String mensaje) {
 		boolean error=true;
 		int resul =0;
@@ -140,67 +186,107 @@ public class ViewMat extends JFrame{
 		}
 		return resul;
 	}
-
+	/**
+	 * Getter de JButton bt_mult, se usa para asignar su Action Listener
+	 * @return Accion del JButton
+	 */
 	public JButton getBt_mult() {
 		return bt_mult;
 	}
-
+	/**
+	 * setter del JButton bt_mult
+	 */
 	public void setBt_mult(JButton bt_mult) {
 		this.bt_mult = bt_mult;
 	}
-
+	/**
+	 * Getter de JButton bt_atras, se usa para asignar su Action Listener
+	 * @return Accion del JButton
+	 */
 	public JButton getBt_atras() {
 		return bt_atras;
 	}
-
+	/**
+	 * setter del JButton bt_atras
+	 */
 	public void setBt_atras(JButton bt_atras) {
 		this.bt_atras = bt_atras;
 	}
-
+	/**
+	 * Getter de JTextArea ta_result, se usa para mostrar el resultado
+	 * @return resultado
+	 */
 	public JTextArea getTa_result() {
 		return ta_result;
 	}
-
+	/**
+	 * setter del JTextArea ta_result
+	 */
 	public void setTa_result(JTextArea ta_result) {
 		this.ta_result = ta_result;
 	}
-
+	/**
+	 * Getter de JTextArea ta_result, recibir el input1
+	 * @return ta_num1
+	 */
 	public JTextArea getTa_num1() {
 		return ta_num1;
 	}
-
+	/**
+	 * setter del JTextArea ta_num1
+	 */
 	public void setTa_num1(JTextArea ta_num1) {
 		this.ta_num1 = ta_num1;
 	}
-
+	/**
+	 * Getter de JTextArea ta_result, recibir el input2
+	 * @return ta_num2
+	 */
 	public JTextArea getTa_num2() {
 		return ta_num2;
 	}
-
+	/**
+	 * setter del JTextArea ta_num2
+	 */
 	public void setTa_num2(JTextArea ta_num2) {
 		this.ta_num2 = ta_num2;
 	}
-
+	/**
+	 * Getter de JLabel lb_num1
+	 * @return lb_num1
+	 */
 	public JLabel getLb_num1() {
 		return lb_num1;
 	}
-
+	/**
+	 * setter del JLabel lb_num1
+	 */
 	public void setLb_num1(JLabel lb_num1) {
 		this.lb_num1 = lb_num1;
 	}
-
+	/**
+	 * Getter de JLabel lb_num2
+	 * @return lb_num2
+	 */
 	public JLabel getLb_num2() {
 		return lb_num2;
 	}
-
+	/**
+	 * setter del JLabel lb_num2
+	 */
 	public void setLb_num2(JLabel lb_num2) {
 		this.lb_num2 = lb_num2;
 	}
-
+	/**
+	 * Getter de JButton bt_nuevo, se usa para asignar su Action Listener
+	 * @return Accion del JButton
+	 */
 	public JButton getBt_nuevo() {
 		return bt_nuevo;
 	}
-
+	/**
+	 * setter del JButton bt_nuevo
+	 */
 	public void setBt_nuevo(JButton bt_nuevo) {
 		this.bt_nuevo = bt_nuevo;
 	}

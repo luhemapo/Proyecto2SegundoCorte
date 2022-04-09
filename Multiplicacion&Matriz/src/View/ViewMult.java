@@ -12,26 +12,56 @@ import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
 public class ViewMult extends JFrame{
-	
+	/**
+	 * Imagen de fondo de la ventana
+	 */
 	private ImageIcon windowImg;
+	/**
+	 * Contenedor de la imagen de fondo de la ventana
+	 */
 	private JLabel lb_welcome;
+	/**
+	 * JLabel para indicar al usuario que escriba
+	 */
 	private JLabel lb_num1;
+	/**
+	 * JLabel para indicar al usuario que escriba
+	 */
 	private JLabel lb_num2;
+	/**
+	 * JTextArea que muestra la solucion
+	 */
 	private JTextArea ta_result;
+	/**
+	 * JTextArea obtiene el input1
+	 */
 	private JTextArea ta_num1;
+	/**
+	 * JTextArea obtiene el input1
+	 */
 	private JTextArea ta_num2;
+	/**
+	 * Boton que ejecuta el algoritmo
+	 */
 	private JButton bt_mult;
-	private JButton bt_BM;
+	/**
+	 * Boton que regresa a la ventana principal
+	 */
 	private JButton bt_atras;
-	private int width;
-	private int height;
+	/**
+	 * Metodo inicializador de la ventana multiplicacion. Define todos sus componentes y ubicaciones
+	 * <br>
+	 * <b>Pre:</b>
+	 * <br>
+	 * <b>Post:</b>
+	 * <br>
+	 * La ventana se encuentra lista para mostrarse
+	 */
 	
 	public ViewMult() {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setIconImage(new ImageIcon(getClass().getResource("/Img/img.jpg")).getImage());
 		setTitle("Multiplicar");
-		width = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-		height = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 		setLayout(null);
 		setSize(1350, 676);
 		
@@ -59,7 +89,6 @@ public class ViewMult extends JFrame{
 		ta_num1.setWrapStyleWord(true);
 		add(ta_num1);
 		JScrollPane scrollnum1 = new JScrollPane(ta_num1);
-		//scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollnum1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollnum1.setBounds(950, 100, 350, 100);
 		scrollnum1.setOpaque(true);
@@ -78,7 +107,6 @@ public class ViewMult extends JFrame{
 		ta_num2.setWrapStyleWord(true);
 		add(ta_num2);
 		JScrollPane scrollnum2 = new JScrollPane(ta_num2);
-		//scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollnum2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollnum2.setBounds(950, 300, 350, 100);
 		scrollnum2.setOpaque(true);
@@ -86,7 +114,6 @@ public class ViewMult extends JFrame{
 		add(scrollnum2);
 		
 		JScrollPane scroll = new JScrollPane(ta_result);
-		//scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll.setBounds(45, 30, 882, 480);
 		scroll.setOpaque(true);
@@ -116,43 +143,68 @@ public class ViewMult extends JFrame{
 	
 
 	}
-
+	/**
+	 * Getter de JButton bt_mult, se usa para asignar su Action Listener
+	 * @return Accion del JButton
+	 */
 	public JButton getBt_mult() {
 		return bt_mult;
 	}
-
+	/**
+	 * setter del JButton bt_mult
+	 */
 	public void setBt_mult(JButton bt_mult) {
 		this.bt_mult = bt_mult;
 	}
-
+	/**
+	 * Getter de JButton bt_atras, se usa para asignar su Action Listener
+	 * @return Accion del JButton
+	 */
 	public JButton getBt_atras() {
 		return bt_atras;
 	}
-
+	/**
+	 * setter del JButton bt_atras
+	 */
 	public void setBt_atras(JButton bt_atras) {
 		this.bt_atras = bt_atras;
 	}
-
+	/**
+	 * Getter de JTextArea ta_result, se usa para mostrar el resultado de la operacion
+	 * @return Resultado
+	 */
 	public JTextArea getTa_result() {
 		return ta_result;
 	}
-
+	/**
+	 * setter del JTextArea ta_result
+	 */
 	public void setTa_result(JTextArea ta_result) {
 		this.ta_result = ta_result;
 	}
-
+	/**
+	 * Getter de JTextArea ta_num1, se usa para obtener el input1
+	 * @return input1
+	 */
 	public JTextArea getTa_num1() {
 		return ta_num1;
 	}
-
+	/**
+	 * setter del JTextArea ta_num1
+	 */
 	public void setTa_num1(JTextArea ta_num1) {
 		this.ta_num1 = ta_num1;
 	}
-
+	/**
+	 * Getter de JTextArea ta_num2, se usa para obtener el input2
+	 * @return input2
+	 */
 	public JTextArea getTa_num2() {
 		return ta_num2;
 	}
-
+	/**
+	 * setter del JTextArea ta_num2
+	 */
 	public void setTa_num2(JTextArea ta_num2) {
 		this.ta_num2 = ta_num2;
 	}

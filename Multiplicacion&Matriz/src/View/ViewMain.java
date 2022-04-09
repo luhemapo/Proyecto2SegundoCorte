@@ -8,15 +8,42 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class ViewMain extends JFrame{
-	
+	/**
+	 * Imagen de fondo de la ventana principal
+	 */
 	private ImageIcon windowImg;
+	/**
+	 * Contenedor de la imagen de la ventana principal
+	 */
 	private JLabel welcome;
+	/**
+	 * Boton para seleccionar el algoritmo de multiplicacion
+	 * de numeros grandes
+	 */
 	private JButton bt_mult;
+	/**
+	 * Boton para seleccionar el algoritmo de multiplicacion
+	 * Strassen
+	 */
 	private JButton bt_matriz_Strassen;
+	/**
+	 * Boton para seleccionar el algoritmo de multiplicacion
+	 * tradicional
+	 */
 	private JButton bt_matriz_mult;
+	/**
+	 * Boton para salir de la aplicacion
+	 */
 	private JButton bt_exit;
-
-
+	/**
+	 * Metodo inicializador de la ventana inicial. Define todos sus componentes y ubicaciones
+	 * <br>
+	 * <b>Pre:</b>
+	 * <br>
+	 * <b>Post:</b>
+	 * <br>
+	 * La ventana se encuentra lista para mostrarse
+	 */
 	public ViewMain() {
 		
 		setIconImage(new ImageIcon(getClass().getResource("/Img/logo.png")).getImage());
@@ -63,7 +90,19 @@ public class ViewMain extends JFrame{
 	
 
 	}
-
+	/**
+	 * Metodo que se ejecuta para mostrar un mensaje de informacion o de error.
+	 * <br>
+	 * <b>Pre:</b>
+	 * <br>
+	 * Muestra mensaje correspondiente
+	 * <br>
+	 * <b>Post:</b>
+	 * <br>
+	 * Se le da al usuario un mensaje
+	 * @param mensaje String que contiene el mensaje a mostrar
+	 * @param type String el tipo de mensaje a mostrar
+	 */
 	public void showMessage(String message, String type) {
 		if (type.equals("Info")) {
 			JOptionPane.showMessageDialog(null, message, "Info", JOptionPane.INFORMATION_MESSAGE);
@@ -71,35 +110,55 @@ public class ViewMain extends JFrame{
 			JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
+	/**
+	 * Getter de JButton bt_mult, se usa para asignar su respectivo Action Listener
+	 * @return Accion del boton
+	 */
 	public JButton getBt_mult() {
 		return bt_mult;
 	}
-
+	/**
+	 * setter del JButton bt_mult
+	 */
 	public void setBt_mult(JButton bt_mult) {
 		this.bt_mult = bt_mult;
 	}
-
+	/**
+	 * Getter de JButton bt_matriz_Strassen, se usa para asignar su respectivo Action Listener
+	 * @return Accion del boton
+	 */
 	public JButton getBt_matriz_Strassen() {
 		return bt_matriz_Strassen;
 	}
-
+	/**
+	 * setter del JButton bt_matriz_Strassen
+	 */
 	public void setBt_matriz_Strassen(JButton bt_matriz) {
 		this.bt_matriz_Strassen = bt_matriz;
 	}
-	
+	/**
+	 * Getter de JButton bt_matriz_mult, se usa para asignar su respectivo Action Listener
+	 * @return Accion del boton
+	 */
 	public JButton getBt_matriz_mult() {
 		return bt_matriz_mult;
 	}
-
+	/**
+	 * setter del JButton bt_matriz_mult
+	 */
 	public void setBt_matriz_mult(JButton bt_matriz_mult) {
 		this.bt_matriz_mult = bt_matriz_mult;
 	}
-
+	/**
+	 * Getter de JButton bt_exit, se usa para asignar su respectivo Action Listener
+	 * @return Accion del boton
+	 */
 	public JButton getBt_exit() {
 		return bt_exit;
 	}
-
+	/**
+	 * setter del JButton bt_exit
+	 */
 	public void setBt_exit(JButton bt_exit) {
 		this.bt_exit = bt_exit;
 	}

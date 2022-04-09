@@ -26,7 +26,7 @@ public class Matrices {
 	/**
 	 * Metodo que se encarga de validar la matriz de mayor tamaño
 	 * <b>Pre:</b> <br>
-	 * recibe el input del tamaño de las 2 matrices,<br>
+	 * recibe el parametro del tamaño de las 2 matrices,<br>
 	 * <b>Post:</b> <br>
 	 * Se ejecuta el metodo<br>
 	 * Regresa el tamaño de la matriz mas grande <br>
@@ -54,7 +54,7 @@ public class Matrices {
 	/**
 	 * Metodo que se encarga de calcular la potencia
 	 * <b>Pre:</b> <br>
-	 * recibe el input del numero a calcular<br>
+	 * recibe el parametro del numero a calcular<br>
 	 * <b>Post:</b> <br>
 	 * Se ejecuta el metodo<br>
 	 * Regresa la potencia <br>
@@ -72,7 +72,7 @@ public class Matrices {
 	/**
 	 * Metodo que se encarga de generar la matriz
 	 * <b>Pre:</b> <br>
-	 * recibe como input el output del metodo biggerStrassen<br>
+	 * recibe como parametro el output del metodo biggerStrassen<br>
 	 * <b>Post:</b> <br>
 	 * Se ejecuta el metodo<br>
 	 * Se inicializa la matriz <br>
@@ -96,7 +96,7 @@ public class Matrices {
 	/**
 	 * Metodo que se encarga de asignar los numeros en la matriz
 	 * <b>Pre:</b> <br>
-	 * recibe como input el tamaño de las matrices y los valores de la matriz A y B<br>
+	 * recibe como parametro el tamaño de las matrices y los valores de la matriz A y B<br>
 	 * <b>Post:</b> <br>
 	 * Se ejecuta el metodo<br>
 	 * Se inicializa la matriz <br>
@@ -127,7 +127,7 @@ public class Matrices {
 	/**
 	 * Metodo que se encarga de multiplicar las matrices utilizando el metodo Strassen
 	 * <b>Pre:</b> <br>
-	 * recibe como input la matriz A y B<br>
+	 * recibe como parametro la matriz A y B<br>
 	 * <b>Post:</b> <br>
 	 * Se ejecuta el metodo<br>
 	 * Regresa la matriz R con el reultado <br>
@@ -224,7 +224,7 @@ public class Matrices {
 	/**
 	 * Metodo que se encarga de mostrar el resultdo de la multiplicacion
 	 * <b>Pre:</b> <br>
-	 * recibe como input el tamaño de las dos matrices multiplicadas<br>
+	 * recibe como parametro el tamaño de las dos matrices multiplicadas<br>
 	 * <b>Post:</b> <br>
 	 * Se ejecuta el metodo<br>
 	 * Muestra el resultado de la multiplicacion <br>
@@ -256,7 +256,14 @@ public class Matrices {
 	        }
 		return result;
 	}
-	
+	/**
+	 * Metodo que se encarga de multiplicar las matrices utilizando el metodo clasico
+	 * <b>Pre:</b> <br>
+	 * recibe como parametro el tamaño de la matriz mayor<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Regresa la matriz R con el reultado <br>
+	 */
 	public long[][] multiplyClasic(int mayor) {
 		 long[][] R = new long[mayor][mayor];
 		for(int i=0;i<mayor;i++) {

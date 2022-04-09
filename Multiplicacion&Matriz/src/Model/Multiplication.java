@@ -67,7 +67,7 @@ public class Multiplication {
 	/**
 	 * Metodo que se encarga hacer la multiplicacion de 2 numeros pequeños
 	 * <b>Pre:</b> <br>
-	 * recibe el input de los 2 inputs del usuario <br>
+	 * recibe como parametro el input de los 2 inputs del usuario <br>
 	 * <b>Post:</b> <br>
 	 * Se ejecuta la multiplicacion<br>
 	 * Regresa el resultado de la multiplicacion <br>
@@ -79,7 +79,7 @@ public class Multiplication {
 	/**
 	 * Metodo que se encarga hacer la multiplicacion de 2 numeros grandes
 	 * <b>Pre:</b> <br>
-	 * recibe el input de los 2 inputs del usuario <br>
+	 * recibe como parametro el input de los 2 inputs del usuario <br>
 	 * <b>Post:</b> <br>
 	 * Se ejecuta el algoritmo de multiplicacion<br>
 	 * Regresa el resultado de la multiplicacion <br>

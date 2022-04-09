@@ -178,7 +178,14 @@ public class Matrices {
         }
         return R;
     }
-	
+	/**
+	 * Metodo que se encarga de dividir las matrices en sus sub matrices
+	 * <b>Pre:</b> <br>
+	 * recibe como parametro la matriz P, C, un entero iB otro jB<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Separa las matrices en sub matrices<br>
+	 */
 	public void split(long[][] P, long[][] C, int iB, int jB) {
 		
         for (int i1 = 0, i2 = iB; i1 < C.length; i1++, i2++) {
@@ -187,7 +194,14 @@ public class Matrices {
             }
         }
     }
-	
+	/**
+	 * Metodo que se encarga de sumar las matrices
+	 * <b>Pre:</b> <br>
+	 * recibe como parametro la matriz A y B<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Suma las matrices<br>
+	 */
 	public long[][] add(long[][] A, long[][] B){
 		 int n = A.length;
 	     long[][] C = new long[n][n];
@@ -199,7 +213,14 @@ public class Matrices {
 	     }
 	     return C;
 	 }
-	 
+	/**
+	 * Metodo que se encarga de restar las matrices 
+	 * <b>Pre:</b> <br>
+	 * recibe como parametro la matriz A y B<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Resta las matrices<br>
+	 */
 	public long[][] sub(long[][] A, long[][] B){
 	        int n = A.length;
 	 
@@ -212,7 +233,14 @@ public class Matrices {
 	        }
 	        return C;
 	    }
-	 
+	/**
+	 * Metodo que se encarga de unir las sub matrices en una matriz
+	 * <b>Pre:</b> <br>
+	 * recibe como parametro la matriz C y P y los enteros iB, jB<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Une las matrices las matrices<br>
+	 */
 	public void join(long[][] C, long[][] P, int iB, int jB){
 		 
 	        for (int i1 = 0, i2 = iB; i1 < C.length; i1++, i2++) {

@@ -9,23 +9,73 @@ import Model.Multiplication;
 import View.ViewMain;
 import View.ViewMat;
 import View.ViewMult;
-
+/**
+ * Clase que maneja el ciclo de ejecucion de la aplicacion
+ */
 public class Controller implements ActionListener {
+	/**
+	 * Objeto de la ventana ViewMain
+	 */
 	public ViewMain viewM;
+	/**
+	 * Objeto de la ventana ViewMult
+	 */
 	public ViewMult viewMult;
+	/**
+	 * Objeto de la ventana ViewMat
+	 */
 	public ViewMat viewMat;
+	/**
+	 * Objeto de la clase Matrices que contiene los algoritmos a ejecutar
+	 */
 	public Matrices mat;
+	/**
+	 * Objeto de la clase Multiplication que contiene los algoritmos a ejecutar
+	 */
 	public Multiplication mult;
+	/**
+	 * Variable que almacena el input1
+	 */
 	public BigInteger input1 = new BigInteger("0");
+	/**
+	 * Variable que almacena el input2
+	 */
 	public BigInteger input2 = new BigInteger("0");
+	/**
+	 * Variable que almacena el valor de n
+	 */
 	public int n = 0;
+	/**
+	 * Variable que almacena el resultado
+	 */
 	public BigInteger result = new BigInteger("0");
+	/**
+	 * Variable que almacena el tamaño 1 de la matriz A
+	 */
 	public static int tam1=0;
+	/**
+	 * Variable que almacena el tamaño 2 de la matriz A
+	 */
 	public static int tam12=0;
+	/**
+	 * Variable que almacena el tamaño 1 de la matriz B
+	 */
 	public static int tam2=0;
+	/**
+	 * Variable que almacena el tamaño 2 de la matriz B
+	 */
 	public static int tam21=0;
+	/**
+	 * Variable que almacena el tamaño mayor de las dos matrices
+	 */
 	public static int mayor =0;
-
+	/**
+	 * Metodo que crea un objeto de la clase controlador <br>
+	 * <b>Pre:</b> <br>
+	 * Las librerias estan correctamente incluidas en el proyecto <br>
+	 * <b>Post:</b> <br>
+	 * Se inicializaron las ventanas, clases, botones, checkbox y se muestra window.
+	 */
 	public Controller() {
 		viewM = new ViewMain();
 		viewMult = new ViewMult();
@@ -44,7 +94,16 @@ public class Controller implements ActionListener {
 		viewMat.getBt_nuevo().addActionListener(this);
 
 	}
-
+	/**
+	 * Metodo que ejecuta la multiplicacion de dos numeros <br>
+	 * <b>Pre:</b> <br>
+	 * El usuario se encuentra en la ventana multiplicar <br>
+	 * El usuario ingresa los numeros a multiplicar <br>
+	 * El usuario oprimie el boton Multiplicar<br>
+	 * <b>Post:</b> <br>
+	 * Se se muestra el resultado <br>
+	 * Se le informa al usuario en caso exista algun error
+	 */
 	public BigInteger runMultiply() {
 		String in1 = viewMult.getTa_num1().getText();
 		String in2 = viewMult.getTa_num2().getText();
@@ -61,7 +120,17 @@ public class Controller implements ActionListener {
 		return result;
 
 	}
-	
+	/**
+	 * Metodo que ejecuta la multiplicacion de dos matrices por el metodo Strassen<br>
+	 * <b>Pre:</b> <br>
+	 * El usuario se encuentra en la ventana multiplicar Strassen<br>
+	 * El usuario ingresa el tamaño de las dos marices <br>
+	 * El usuario ingresa los valores de las dos matrices <br>
+	 * El usuario oprimie el boton Multiplicar<br>
+	 * <b>Post:</b> <br>
+	 * Se se muestra el resultado <br>
+	 * Se le informa al usuario en caso exista algun error
+	 */
 	public void runStrassenMatriz() {
 		mayor=mat.biggerStrassen(tam1, tam12, tam2, tam21);
 		mat.inicializarArr(mayor);
@@ -79,7 +148,17 @@ public class Controller implements ActionListener {
 			viewM.showMessage("revise las dimenciones de su matriz o el formato de ingreso","Error");
 		}
 	}
-	
+	/**
+	 * Metodo que ejecuta la multiplicacion de dos matrices por el metodo Strassen<br>
+	 * <b>Pre:</b> <br>
+	 * El usuario se encuentra en la ventana multiplicacion clasica<br>
+	 * El usuario ingresa el tamaño de las dos marices <br>
+	 * El usuario ingresa los valores de las dos matrices <br>
+	 * El usuario oprimie el boton Multiplicar<br>
+	 * <b>Post:</b> <br>
+	 * Se se muestra el resultado <br>
+	 * Se le informa al usuario en caso exista algun error
+	 */
 	public void runClasicMatriz() {
 		if(tam1>tam2 &&tam1>tam21) {
 			mayor=tam1;
@@ -103,7 +182,15 @@ public class Controller implements ActionListener {
 			viewM.showMessage("revise las dimenciones de su matriz o el formato de ingreso","Error");
 		}
 	}
-	
+	/**
+	 * Metodo encargado de leer el tamaño de las dos matrices<br>
+	 * <b>Pre:</b> <br>
+	 * El usuario se encuentra en la ventana multiplicacion clasica<br>
+	 * El usuario ingresa el tamaño de las dos marices <br>
+	 * <b>Post:</b> <br>
+	 * Se muestra el tamaño de las matrices ingresadas <br>
+	 * Se le informa al usuario en caso exista algun error
+	 */
 	public void readMatrix() {
 		boolean flag=false;
 		while(!flag) {
@@ -125,7 +212,15 @@ public class Controller implements ActionListener {
 		viewMat.getLb_num1().setText("Matriz A("+tam1+"x"+tam12+"):");
 		viewMat.getLb_num2().setText("Matriz B("+tam2+"x"+tam21+"):");
 	}
-
+	/**
+	 * Contiene la logica de los eventos que vienen de las ventanas <br>
+	 * <b>Pre:</b> <br>
+	 * El usuario ejecuto una evento y espera una respuesta <br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta la accion correspondiente al evento lanzado por el usuario
+	 * 
+	 * @param e Evento que ejecuta el usuario
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("MAIN_MULTIPLICAR")) {

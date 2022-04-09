@@ -1,14 +1,36 @@
 package Model;
 
 public class Matrices {
+	/**
+	 * Variable que almacena la matriz A
+	 */
 	private long[][] A;
+	/**
+	 * Variable que almacena la matriz B
+	 */
 	private long[][] B;
+	/**
+	 * Variable que almacena la matriz C
+	 */
 	private long[][] C;
-	
+	/**
+	 * Metodo que crea un objeto de la clase Matrices <br>
+	 * <b>Pre:</b> <br>
+	 * Las librerias estan correctamente incluidas en el proyecto <br>
+	 * <b>Post:</b> <br>
+	 * Se inicializaron las ventanas, clases, botones, checkbox y se muestra window.
+	 */
 	public Matrices() {
 		// TODO Auto-generated constructor stub
 	}
-	
+	/**
+	 * Metodo que se encarga de validar la matriz de mayor tamaño
+	 * <b>Pre:</b> <br>
+	 * recibe el input del tamaño de las 2 matrices,<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Regresa el tamaño de la matriz mas grande <br>
+	 */
 	public int biggerStrassen(int tam1, int tam12, int tam2, int tam21) {
 		int mayor =0;
 		if(tam1>tam2 &&tam1>tam21) {
@@ -29,7 +51,14 @@ public class Matrices {
 		}
 		return mayor;
 	}
-	
+	/**
+	 * Metodo que se encarga de calcular la potencia
+	 * <b>Pre:</b> <br>
+	 * recibe el input del numero a calcular<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Regresa la potencia <br>
+	 */
 	public static boolean potencia(double numero) {
 		if(numero==1) {
 			return true;
@@ -40,7 +69,14 @@ public class Matrices {
 		}
 		return false;
 	}
-	
+	/**
+	 * Metodo que se encarga de generar la matriz
+	 * <b>Pre:</b> <br>
+	 * recibe como input el output del metodo biggerStrassen<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Se inicializa la matriz <br>
+	 */
 	public  void inicializarArr(int mayor) {
 		
 		A= new long[mayor][mayor];
@@ -57,7 +93,14 @@ public class Matrices {
 			}
 		}
 	}
-	
+	/**
+	 * Metodo que se encarga de asignar los numeros en la matriz
+	 * <b>Pre:</b> <br>
+	 * recibe como input el tamaño de las matrices y los valores de la matriz A y B<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Se inicializa la matriz <br>
+	 */
 	public  boolean asignar(int tam1,int tam12,int tam2,int tam21,String matrizA, String matrizB) {
 		boolean flag=true;
 		try {
@@ -81,7 +124,14 @@ public class Matrices {
 		}
 		return flag;
 	}
-	
+	/**
+	 * Metodo que se encarga de multiplicar las matrices utilizando el metodo Strassen
+	 * <b>Pre:</b> <br>
+	 * recibe como input la matriz A y B<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Regresa la matriz R con el reultado <br>
+	 */
 	public long[][] multiplyStrassen(long[][] A, long[][] B){
 
 		int n = A.length;
@@ -171,7 +221,14 @@ public class Matrices {
 	            }
 	        }
 	    }
-
+	/**
+	 * Metodo que se encarga de mostrar el resultdo de la multiplicacion
+	 * <b>Pre:</b> <br>
+	 * recibe como input el tamaño de las dos matrices multiplicadas<br>
+	 * <b>Post:</b> <br>
+	 * Se ejecuta el metodo<br>
+	 * Muestra el resultado de la multiplicacion <br>
+	 */
 	public String mostrarMatriz(int tam1,int tam12,int tam2,int tam21) {
 		String result= "";
 		result+="esta es su martiz A: \n";
@@ -213,27 +270,42 @@ public class Matrices {
 		}
 		return R;
 	}
-			
+	/**
+	 * Getter de la matriz A
+	 * @return matriz A
+	 */
 	public long[][] getA() {
 		return A;
 	}
-
+	/**
+	 * setter de la matriz A
+	 */
 	public void setA(long[][] a) {
 		A = a;
 	}
-
+	/**
+	 * Getter de la matriz B
+	 * @return matriz B
+	 */
 	public long[][] getB() {
 		return B;
 	}
-
+	/**
+	 * setter de la matriz B
+	 */
 	public void setB(long[][] b) {
 		B = b;
 	}
-
+	/**
+	 * Getter de la matriz C
+	 * @return matriz C
+	 */
 	public long[][] getC() {
 		return C;
 	}
-
+	/**
+	 * setter de la matriz C
+	 */
 	public void setC(long[][] c) {
 		C = c;
 	}

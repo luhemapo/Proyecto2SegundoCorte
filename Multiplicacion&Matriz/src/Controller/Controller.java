@@ -51,6 +51,7 @@ public class Controller implements ActionListener {
 		input1 = new BigInteger(in1);
 		input2 = new BigInteger(in2);
 		n = Math.max(input1.bitLength(), input2.bitLength());
+		
 		if (n < 6) {
 			result = mult.smallMulti(input1, input2);
 		} else {
